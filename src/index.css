@@ -4,11 +4,15 @@ body {
   font-family: Archivo, sans-serif;
 }
 
-/* topbar css */
+/* container ---------- */
+.container {
+  margin-top: 10px;
+}
+/*--------------------- topbar css -------------------*/
 .topbar {
   width: 100%;
   height: 50px;
-  /* background-color: pink; */
+  background-color: white;
   position: sticky;
   top: 0;
   z-index: 999;
@@ -67,25 +71,20 @@ body {
   border-radius: 50%;
   cursor: pointer;
   border: 3px solid black;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
-/* sidebar */
+/* sidebar css ------------------------------------------- */
 .container {
   display: flex;
 }
 
 .sidebar {
   flex: 1;
-  /* background-color: red; */
+  background-color: red;
   height: calc(100vh - 50px);
   position: sticky;
   top: 50px;
-}
-
-.others {
-  flex: 4;
-  background-color: pink;
 }
 
 .sidebarWrapper {
@@ -118,7 +117,7 @@ body {
   align-items: center;
   border-radius: 20px;
   margin-bottom: 8px;
-  width: 70%;
+  width: 80%;
 }
 
 .sbicon {
@@ -127,4 +126,68 @@ body {
 .sidebarListItem.active,
 .sidebarListItem:hover {
   background-color: skyblue;
+}
+
+/* PAGES CSS ----------------------------------- */
+/*  HOME PAGE -------------------------- */
+.home {
+  flex: 4;
+  background-color: lightgray;
+}
+
+/* featuredInfo */
+.featured {
+  background-color: green;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.featuredItem {
+  flex: 1;
+  margin: 10px 20px;
+  background-color: pink;
+  padding: 30px;
+  border-radius: 10px;
+  -webkit-box-shadow: 16px 16px 7px 0px rgba(66, 66, 66, 1);
+  -moz-box-shadow: 16px 16px 7px 0px rgba(66, 66, 66, 1);
+  box-shadow: 16px 16px 7px 0px rgba(66, 66, 66, 1);
+}
+
+.featuredTitle {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.featuredMoneyContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.featuredMoney {
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.featuredMoneyRate {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.featuredIcon {
+  color: green;
+  font-size: 40px !important;
+  margin-left: 10px;
+}
+
+.featuredIcon.negative {
+  color: red;
+}
+
+.featuredSub {
+  color: grey;
+  font-size: 20px;
 }
