@@ -149,9 +149,9 @@ body {
   background-color: pink;
   padding: 30px;
   border-radius: 10px;
-  -webkit-box-shadow: 16px 16px 7px 0px rgba(66, 66, 66, 1);
-  -moz-box-shadow: 16px 16px 7px 0px rgba(66, 66, 66, 1);
-  box-shadow: 16px 16px 7px 0px rgba(66, 66, 66, 1);
+  -webkit-box-shadow: 0px 3px 5px 10px rgba(69, 68, 69, 1);
+  -moz-box-shadow: 0px 3px 5px 10px rgba(69, 68, 69, 1);
+  box-shadow: 0px 3px 5px 10px rgba(69, 68, 69, 1);
 }
 
 .featuredTitle {
@@ -190,4 +190,20 @@ body {
 .featuredSub {
   color: grey;
   font-size: 20px;
+}
+
+/* Chart CSS -------------------------- */
+.chart {
+  margin: 15px;
+  padding: 10px;
+  background-color: white;
+  -webkit-box-shadow: 0px 3px 5px 10px rgba(69, 68, 69, 1);
+  -moz-box-shadow: 0px 3px 5px 10px rgba(69, 68, 69, 1);
+  box-shadow: 0px 3px 5px 10px rgba(69, 68, 69, 1);
+}
+
+.chartTitle {
+  margin-bottom: 20px;
+  font-size: 25px;
+  letter-spacing: 1px;
 }
