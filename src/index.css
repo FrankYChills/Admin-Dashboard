@@ -77,10 +77,54 @@ body {
 
 .sidebar {
   flex: 1;
-  background-color: red;
+  /* background-color: red; */
+  height: calc(100vh - 50px);
+  position: sticky;
+  top: 50px;
 }
 
 .others {
   flex: 4;
   background-color: pink;
+}
+
+.sidebarWrapper {
+  /* background-color: grey; */
+  padding: 20px;
+}
+
+.sidebarMenu {
+  margin-bottom: 6px;
+}
+
+.sidebarTitle {
+  font-size: 17px;
+  color: black;
+  letter-spacing: 2px;
+}
+
+.sidebarList {
+  list-style-type: none;
+  /* background-color: yellow; */
+  margin-left: -15px;
+  padding: 5px;
+  margin-top: -10px;
+}
+.sidebarListItem {
+  /* background-color: green; */
+  padding: 7px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  margin-bottom: 8px;
+  width: 70%;
+}
+
+.sbicon {
+  margin-right: 8px;
+}
+.sidebarListItem.active,
+.sidebarListItem:hover {
+  background-color: skyblue;
 }
