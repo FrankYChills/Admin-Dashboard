@@ -48,3 +48,69 @@ export const userData = [
     "Active User": 2010,
   },
 ];
+
+export const userRows = [
+  {
+    id: 1,
+    username: "Jon Snow",
+    avatar:
+      "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=600",
+    email: "jon@hotmail.com",
+    status: "active",
+    transaction: "$200.00",
+  },
+  {
+    id: 2,
+    username: "Jon Snow",
+    avatar:
+      "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=600",
+    email: "jon@hotmail.com",
+    status: "active",
+    transaction: "$200.00",
+  },
+  {
+    id: 3,
+    username: "Jon Snow",
+    avatar:
+      "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=600",
+    email: "jon@hotmail.com",
+    status: "active",
+    transaction: "$200.00",
+  },
+  {
+    id: 4,
+    username: "Jon Snow",
+    avatar:
+      "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=600",
+    email: "jon@hotmail.com",
+    status: "active",
+    transaction: "$200.00",
+  },
+  {
+    id: 5,
+    username: "Jon Snow",
+    avatar:
+      "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=600",
+    email: "jon@hotmail.com",
+    status: "active",
+    transaction: "$200.00",
+  },
+  {
+    id: 6,
+    username: "Jon Snow",
+    avatar:
+      "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=600",
+    email: "jon@hotmail.com",
+    status: "active",
+    transaction: "$200.00",
+  },
+  {
+    id: 7,
+    username: "Jon Snow",
+    avatar:
+      "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=600",
+    email: "jon@hotmail.com",
+    status: "active",
+    transaction: "$200.00",
+  },
+];

@@ -350,3 +350,37 @@ body {
 .userList {
   flex: 4;
 }
+
+.userListUser {
+  display: flex;
+  align-items: center;
+  padding: 0 !important;
+}
+
+.userListImg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.userListEdit {
+  border: None;
+  border-radius: 30px;
+  padding: 10px 20px;
+  background-color: #e3acf9;
+  margin-right: 20px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.userListDelete {
+  color: #dc0000;
+  cursor: pointer;
+}
+
+/* Single User page ------------- */
+.user {
+  flex: 4;
+}

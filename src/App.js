@@ -6,6 +6,7 @@ import UserList from "./pages/userList/UserList";
 import Layout from "./components/parentComp/Layout";
 
 import Home from "./pages/home/Home";
+import User from "./pages/user/User";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
             <Route index element={<Home />} />
             {/* path - /users */}
             <Route path="users" element={<UserList />} />
+            {/* path - /user/4 */}
+            <Route path="user/:id" element={<User />} />
           </Route>
         </Routes>
       </div>
