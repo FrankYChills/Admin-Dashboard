@@ -7,6 +7,7 @@ import PaidIcon from "@mui/icons-material/Paid";
 import MessageIcon from "@mui/icons-material/Message";
 import EmailIcon from "@mui/icons-material/Email";
 import FeedbackIcon from "@mui/icons-material/Feedback";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -31,14 +32,18 @@ const Sidebar = () => {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Menu</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem ">
-              <PeopleOutlineIcon fontSize="large" className="sbicon" />
-              <b>Users</b>
-            </li>
-            <li className="sidebarListItem">
-              <LocalMallIcon fontSize="large" className="sbicon" />
-              <b>Products</b>
-            </li>
+            <Link to="/users" className="link">
+              <li className="sidebarListItem ">
+                <PeopleOutlineIcon fontSize="large" className="sbicon" />
+                <b>Users</b>
+              </li>
+            </Link>
+            <Link to="/products" className="link">
+              <li className="sidebarListItem">
+                <LocalMallIcon fontSize="large" className="sbicon" />
+                <b>Products</b>
+              </li>
+            </Link>
             <li className="sidebarListItem">
               <PaidIcon fontSize="large" className="sbicon" />
               <b>Transcations</b>

@@ -128,6 +128,11 @@ body {
   background-color: skyblue;
 }
 
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* PAGES CSS ----------------------------------- */
 /*  HOME PAGE -------------------------- */
 .home {
@@ -405,6 +410,9 @@ body {
   border-radius: 20px;
   cursor: pointer;
   font-size: 20px;
+  font-weight: 700;
+  color: #3d1766;
+  margin-right: 40px;
 }
 
 .userContainer {
@@ -519,6 +527,8 @@ body {
   font-size: 15px;
 }
 
+/* Update User - Right section */
+
 .userUpdateRight {
   display: flex;
   margin-right: 20%;
@@ -533,7 +543,8 @@ body {
 }
 
 .userUpdateIcon {
-  cursor: pointer;
+  font-size: 40px !important;
+  margin-top: 10px;
 }
 
 .userUpdateButton {
@@ -545,4 +556,73 @@ body {
   color: white;
   font-size: 20px;
   margin-top: 70%;
+}
+
+/* New User Page -------------------------------- */
+
+.newUser {
+  flex: 4;
+}
+
+.newUserTitle {
+  letter-spacing: 1px;
+}
+
+.newUserForm {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.newUserItem {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.newUserItem > label {
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  color: grey;
+}
+
+.newUserItem > input {
+  height: 25px;
+  border: none;
+  border-bottom: 1px solid grey;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.newUserGender > input {
+  margin: 5px;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.newUserGender > label {
+  margin-right: 20px;
+}
+
+.newUserSelect {
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px;
+  color: grey;
+}
+
+.newUserButton {
+  background-color: darkblue;
+  padding: 20px;
+  width: 200px;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  margin-top: 20px;
+  font-size: 15px;
+  cursor: pointer;
 }

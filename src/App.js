@@ -7,6 +7,7 @@ import Layout from "./components/parentComp/Layout";
 
 import Home from "./pages/home/Home";
 import User from "./pages/user/User";
+import NewUser from "./pages/newUser/NewUser";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
             <Route path="users" element={<UserList />} />
             {/* path - /user/4 */}
             <Route path="user/:id" element={<User />} />
+            {/* path - /newUser */}
+            <Route path="newUser" element={<NewUser />} />
           </Route>
         </Routes>
       </div>
