@@ -89,10 +89,11 @@ const User = () => {
                   src="https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=600"
                 />
                 <label htmlFor="file">
-                  <PublishIcon /> Edit
+                  Upload <PublishIcon />
                 </label>
                 <input type="file" id="file" style={{ display: "none" }} />
               </div>
+              <button className="userUpdateButton">Update</button>
             </div>
           </form>
         </div>

@@ -477,3 +477,72 @@ body {
   font-weight: 600;
   letter-spacing: 1px;
 }
+
+.userUpdateImg {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.userUpdateForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.userUpdateTitle {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.userUpdateItem {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.userUpdateItem > label {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.userUpdateInput {
+  border: none;
+  height: 50px;
+  width: 250px;
+  border-bottom: 1px solid gray;
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+.userUpdateRight {
+  display: flex;
+  margin-right: 20%;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-color: red; */
+}
+
+.userUpdateUpload {
+  display: flex;
+  align-items: center;
+}
+
+.userUpdateIcon {
+  cursor: pointer;
+}
+
+.userUpdateButton {
+  border-radius: 30px;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  background-color: darkblue;
+  color: white;
+  font-size: 20px;
+  margin-top: 70%;
+}
