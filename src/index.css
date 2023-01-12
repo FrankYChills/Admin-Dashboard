@@ -335,12 +335,18 @@ body {
   font-weight: 500;
 }
 .widgetLgButton.Declined {
-  background-color: #ff4a4a;
+  background-color: #f5edce;
   color: black;
   font-weight: 500;
 }
 .widgetLgButton.Pending {
-  background-color: #3b9ae1;
-  color: pink;
+  background-color: #f5f5dc;
+  color: purple;
   font-weight: 500;
+}
+
+/* User List Page ------------------- */
+
+.userList {
+  flex: 4;
 }
