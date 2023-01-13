@@ -626,3 +626,43 @@ body {
   font-size: 15px;
   cursor: pointer;
 }
+
+/* Products Page ------------------------- */
+.productList {
+  flex: 4;
+}
+
+.productListUser {
+  display: flex;
+  align-items: center;
+  padding: 0 !important;
+}
+
+.productListImg {
+  width: 60px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.productListEdit {
+  border: None;
+  border-radius: 30px;
+  padding: 10px 20px;
+  background-color: #e3acf9;
+  margin-right: 20px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.productListDelete {
+  color: #dc0000;
+  cursor: pointer;
+}
+
+/* Single Product Page -------------- */
+.product {
+  flex: 4;
+  padding: 20px;
+}
