@@ -753,3 +753,126 @@ body {
   -moz-box-shadow: 0px 3px 5px 10px rgba(69, 68, 69, 1);
   box-shadow: 0px 3px 5px 10px rgba(69, 68, 69, 1);
 }
+
+.productForm {
+  display: flex;
+  justify-content: space-between;
+}
+
+.productFormLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.productFormLeft > label {
+  margin-bottom: 10px;
+  color: grey;
+}
+
+.productFormLeft > input {
+  margin-bottom: 10px;
+  border: none;
+  padding: 10px;
+  border-bottom: 1px solid grey;
+}
+
+.productFormLeft > select {
+  margin-bottom: 10px;
+  border: none;
+  padding: 10px;
+  border-bottom: 1px solid grey;
+}
+
+.productFormRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 30%;
+}
+
+.productUpload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10%;
+}
+
+.productButton {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: darkblue;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  letter-spacing: 1px;
+}
+
+/* New Product Page ----------------------------- */
+.newProduct {
+  flex: 4;
+}
+
+.newProductTitle {
+  letter-spacing: 1px;
+}
+
+.newProductForm {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.newProductItem {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.newProductItem > label {
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  color: grey;
+}
+
+.newProductItem > input {
+  height: 25px;
+  border: none;
+  border-bottom: 1px solid grey;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.newProductActive > input {
+  margin: 5px;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.newProductActive > label {
+  margin-right: 20px;
+}
+
+.newProductSelect {
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px;
+  color: grey;
+}
+
+.newProductButton {
+  background-color: darkblue;
+  padding: 20px;
+  width: 200px;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  margin-top: 20px;
+  font-size: 15px;
+  cursor: pointer;
+  letter-spacing: 2px;
+}

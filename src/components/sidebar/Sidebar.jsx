@@ -7,18 +7,29 @@ import PaidIcon from "@mui/icons-material/Paid";
 import MessageIcon from "@mui/icons-material/Message";
 import EmailIcon from "@mui/icons-material/Email";
 import FeedbackIcon from "@mui/icons-material/Feedback";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
+  const currClass = "active";
+  const location = useLocation();
+
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem active">
-              <HomeIcon fontSize="large" className="sbicon" /> <b>Home</b>
-            </li>
+            <Link to="/" className="link">
+              <li
+                className={
+                  location.pathname == "/"
+                    ? "sidebarListItem active"
+                    : "sidebarListItem"
+                }
+              >
+                <HomeIcon fontSize="large" className="sbicon" /> <b>Home</b>
+              </li>
+            </Link>
             <li className="sidebarListItem">
               <AnalyticsIcon fontSize="large" className="sbicon" />{" "}
               <b> Analytics</b>
@@ -33,13 +44,25 @@ const Sidebar = () => {
           <h3 className="sidebarTitle">Menu</h3>
           <ul className="sidebarList">
             <Link to="/users" className="link">
-              <li className="sidebarListItem ">
+              <li
+                className={
+                  location.pathname == "/users"
+                    ? "sidebarListItem active"
+                    : "sidebarListItem"
+                }
+              >
                 <PeopleOutlineIcon fontSize="large" className="sbicon" />
                 <b>Users</b>
               </li>
             </Link>
             <Link to="/products" className="link">
-              <li className="sidebarListItem">
+              <li
+                className={
+                  location.pathname == "/products"
+                    ? "sidebarListItem active"
+                    : "sidebarListItem"
+                }
+              >
                 <LocalMallIcon fontSize="large" className="sbicon" />
                 <b>Products</b>
               </li>

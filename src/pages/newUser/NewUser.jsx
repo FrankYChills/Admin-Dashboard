@@ -39,6 +39,10 @@ const NewUser = () => {
             <option value="no">Hell Nahh</option>
           </select>
         </div>
+        <div className="newProductItem">
+          <label>User Image</label>
+          <input type="file" />
+        </div>
       </form>
       <button className="newUserButton">Create</button>
     </div>

@@ -54,7 +54,9 @@ const Product = () => {
             <label>In Stock</label>
             <select name="inStock" id="stock">
               <option value="yes">Yes</option>
-              <option value="no">No</option>
+              <option value="no" selected>
+                No
+              </option>
             </select>
             <label>Active</label>
             <select name="active" id="active">
@@ -74,7 +76,7 @@ const Product = () => {
               </label>
               <input type="file" id="file" style={{ display: "none" }} />
             </div>
-            <button className="productButton">Upload</button>
+            <button className="productButton">Update</button>
           </div>
         </form>
       </div>
