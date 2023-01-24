@@ -1,7 +1,12 @@
 import axios from "axios";
-import { loginFailure, loginSuccess, loginStart } from "./AuthAction";
+import {
+  loginFailure,
+  loginSuccess,
+  loginStart,
+  logoutSuccess,
+} from "./AuthAction";
 
-//
+//login
 export const login = async (user, dispatch) => {
   // use dispath to trigger actions
   dispatch(loginStart());
@@ -18,4 +23,9 @@ export const login = async (user, dispatch) => {
     dispatch(loginFailure());
     console.log(err);
   }
+};
+
+// logout
+export const logout = (dispatch) => {
+  dispatch(logoutSuccess());
 };

@@ -1,7 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
-import Sidebar from "./components/sidebar/Sidebar";
-import Topbar from "./components/topbar/Topbar";
 import UserList from "./pages/userList/UserList";
 import Layout from "./components/parentComp/Layout";
 import { useContext, useEffect } from "react";
@@ -19,37 +22,29 @@ function App() {
   const { user } = useContext(authContext);
 
   useEffect(() => {}, [user]);
-  if (user) {
-    return (
-      <>
-        {" "}
-        <Topbar />
-        <div className="container">
-          <Sidebar />
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              {/* / path */}
-              <Route index element={<Home />} />
-              {/* path - /users */}
-              <Route path="users" element={<UserList />} />
-              {/* path - /user/4 */}
-              <Route path="user/:id" element={<User />} />
-              {/* path - /newUser */}
-              <Route path="newUser" element={<NewUser />} />
-              {/* /products */}
-              <Route path="movies" element={<ProductList />} />
-              {/* /product/4 */}
-              <Route path="product/:id" element={<Product />} />
-              {/* /newProduct */}
-              <Route path="newProduct" element={<NewProduct />} />
-            </Route>
-          </Routes>
-        </div>
-      </>
-    );
-  } else {
-    return <Login />;
-  }
+  return (
+    <>
+      <Routes>
+        <Route path="login" element={!user ? <Login /> : <Navigate to="/" />} />
+        <Route path="/" element={user ? <Layout /> : <Navigate to="/login" />}>
+          {/* / path */}
+          <Route index element={<Home />} />
+          {/* path - /users */}
+          <Route path="users" element={<UserList />} />
+          {/* path - /user/4 */}
+          <Route path="user/:id" element={<User />} />
+          {/* path - /newUser */}
+          <Route path="newUser" element={<NewUser />} />
+          {/* /products */}
+          <Route path="movies" element={<ProductList />} />
+          {/* /product/4 */}
+          <Route path="product/:id" element={<Product />} />
+          {/* /newProduct */}
+          <Route path="newProduct" element={<NewProduct />} />
+        </Route>
+      </Routes>
+    </>
+  );
 }
 
 export default App;

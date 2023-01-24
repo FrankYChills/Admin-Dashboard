@@ -3,6 +3,7 @@ const authReducer = (state, action) => {
   console.log(action);
   switch (action.type) {
     case "LOGIN_START":
+      // return new state
       return {
         user: null,
         isFetching: true,
@@ -22,6 +23,13 @@ const authReducer = (state, action) => {
         isFetching: false,
         error: true,
       };
+    case "LOGOUT":
+      return {
+        user: null,
+        isFetching: false,
+        error: false,
+      };
+
     default:
       return { ...state };
   }
