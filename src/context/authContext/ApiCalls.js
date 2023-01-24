@@ -12,7 +12,8 @@ export const login = async (user, dispatch) => {
       user
     );
 
-    dispatch(loginSuccess(res.data.data));
+    // dipatch login success only when the user is an admin
+    res.data.data.isAdmin && dispatch(loginSuccess(res.data.data));
   } catch (err) {
     dispatch(loginFailure());
     console.log(err);

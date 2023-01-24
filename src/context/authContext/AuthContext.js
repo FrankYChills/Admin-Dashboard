@@ -1,10 +1,10 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 
 import authReducer from "./AuthReducer";
 
 // initial state for auth
 const initialState = {
-  user: null,
+  user: JSON.parse(localStorage.getItem("user")) || null,
   isFetching: false,
   error: false,
 };
@@ -15,6 +15,12 @@ export const authContext = createContext(initialState);
 export const AuthContextProvider = ({ children }) => {
   // define the state and its reducer to update that
   const [state, dispatch] = useReducer(authReducer, initialState);
+
+  // for storing user credential's or this contexts user state in local storage so that it doesn't gets cleared on refresh
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(state.user));
+  }, [state.user]);
+
   // provide state values to childrens as
   return (
     <authContext.Provider
