@@ -14,7 +14,8 @@ import NewProduct from "./pages/newProduct/NewProduct";
 
 function App() {
   return (
-    <Router>
+    <>
+      {" "}
       <Topbar />
       <div className="container">
         <Sidebar />
@@ -29,7 +30,7 @@ function App() {
             {/* path - /newUser */}
             <Route path="newUser" element={<NewUser />} />
             {/* /products */}
-            <Route path="products" element={<ProductList />} />
+            <Route path="movies" element={<ProductList />} />
             {/* /product/4 */}
             <Route path="product/:id" element={<Product />} />
             {/* /newProduct */}
@@ -37,7 +38,7 @@ function App() {
           </Route>
         </Routes>
       </div>
-    </Router>
+    </>
   );
 }
 

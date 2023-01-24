@@ -7,6 +7,7 @@ import PaidIcon from "@mui/icons-material/Paid";
 import MessageIcon from "@mui/icons-material/Message";
 import EmailIcon from "@mui/icons-material/Email";
 import FeedbackIcon from "@mui/icons-material/Feedback";
+import MovieIcon from "@mui/icons-material/Movie";
 import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
@@ -55,16 +56,16 @@ const Sidebar = () => {
                 <b>Users</b>
               </li>
             </Link>
-            <Link to="/products" className="link">
+            <Link to="/movies" className="link">
               <li
                 className={
-                  location.pathname == "/products"
+                  location.pathname == "/movies"
                     ? "sidebarListItem active"
                     : "sidebarListItem"
                 }
               >
-                <LocalMallIcon fontSize="large" className="sbicon" />
-                <b>Products</b>
+                <MovieIcon fontSize="large" className="sbicon" />
+                <b>Movies</b>
               </li>
             </Link>
             <li className="sidebarListItem">
