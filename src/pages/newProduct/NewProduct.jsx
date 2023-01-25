@@ -1,38 +1,120 @@
+import { useState } from "react";
+
 const NewProduct = () => {
+  const [movie, setMovie] = useState({});
+  const [mainImg, setMainImg] = useState(null);
+  const [titleImg, setTitleImg] = useState(null);
+  const [thumbnailImg, setThumbnailImg] = useState(null);
+  const [trailer, setTrailer] = useState(null);
+  const [video, setVideo] = useState(null);
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setMovie({ ...movie, [e.target.name]: value });
+  };
+  console.log(movie);
   return (
     <div className="newProduct">
-      <h1 className="newProductTitle">New Product</h1>
+      <h1 className="newProductTitle">Add a New Movie/Series</h1>
       <form className="newProductForm">
         <div className="newProductItem">
+          <label>Main Image</label>
+          <input type="file" id="mainImg" />
+        </div>
+        <div className="newProductItem">
+          <label>Title Image</label>
+          <input type="file" id="titleImg" />
+        </div>
+        <div className="newProductItem">
+          <label>Thumbnail Image</label>
+          <input type="file" id="thumbnailImg" />
+        </div>
+        <div className="newProductItem">
           <label>Name</label>
-          <input type="text" placeholder="Enter product name" />
+          <input
+            type="text"
+            placeholder="Enter Movie/Series name"
+            name="title"
+            onChange={handleChange}
+          />
         </div>
         <div className="newProductItem">
-          <label>Stock</label>
-          <input type="text" placeholder="items in stock" />
+          <label>Description</label>
+          <input
+            type="text"
+            placeholder="Enter Movie/Series description"
+            name="desc"
+            onChange={handleChange}
+          />
         </div>
         <div className="newProductItem">
-          <label>Active</label>
+          <label>Genre</label>
+          <input
+            type="text"
+            placeholder="Enter Movie/Series Genre"
+            name="genre"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="newProductItem">
+          <label>Age Limit</label>
+          <input
+            type="text"
+            placeholder="Enter Movie/Series Genre"
+            name="ageLimit"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="newProductItem">
+          <label>Year Of Release</label>
+          <input
+            type="text"
+            placeholder="Enter Release Year"
+            name="year"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="newProductItem">
+          <label>Duration</label>
+          <input
+            type="text"
+            placeholder="Enter Movie/Series duration"
+            name="duration"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="newProductItem">
+          <label>Movie or Series</label>
           <div className="newProductActive">
-            <input type="radio" name="active" id="yes" value="yes" />
-            <label htmlFor="yes">Yes</label>
-            <input type="radio" name="active" id="no" value="no" />
-            <label htmlFor="no">No</label>
+            <input
+              type="radio"
+              name="isSeries"
+              id="yes"
+              value={true}
+              onChange={handleChange}
+            />
+            <label htmlFor="yes">Series</label>
+            <input
+              type="radio"
+              name="isSeries"
+              id="no"
+              value={false}
+              onChange={handleChange}
+            />
+            <label htmlFor="no">Movie</label>
           </div>
         </div>
+
         <div className="newProductItem">
-          <label>In Stock</label>
-          <select className="newProductSelect" name="inStock" id="inStock">
-            <option value="yes">Hell Yeah</option>
-            <option value="no">Hell Nahh</option>
-          </select>
+          <label>Trailer</label>
+          <input type="file" name="trailer" />
         </div>
         <div className="newProductItem">
-          <label>Product Image</label>
-          <input type="file" />
+          <label>Full Video</label>
+          <input type="file" name="video" />
         </div>
       </form>
-      <button className="newProductButton">Create</button>
+      <button className="newProductButton">Add</button>
     </div>
   );
 };

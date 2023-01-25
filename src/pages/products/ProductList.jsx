@@ -6,7 +6,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 import { productRows } from "../../dummyData";
 import { movieContext } from "../../context/movieContext/MovieContext";
-import { getMovies } from "../../context/movieContext/ApiCalls";
+import { deleteMovie, getMovies } from "../../context/movieContext/ApiCalls";
 
 const ProductList = () => {
   // const [data, setData] = useState(productRows);
@@ -14,8 +14,12 @@ const ProductList = () => {
 
   useEffect(() => {
     getMovies(dispatch);
-  }, [dispatch]);
-  console.log(movies);
+  }, []);
+
+  useEffect(() => {
+    console.log("re from mov");
+  }, [movies]);
+
   const columns = [
     { field: "_id", headerName: "ID", width: 70 },
     {
@@ -56,12 +60,12 @@ const ProductList = () => {
       renderCell: (params) => {
         return (
           <>
-            <Link to={`/product/${params.row.id}`}>
+            <Link to={`/product/${params.row._id}`}>
               <button className="productListEdit">Edit</button>
             </Link>
             <DeleteIcon
               className="productListDelete"
-              // onClick={() => handleDelete(params.row.id)}
+              onClick={() => deleteMovie(params.row._id, dispatch)}
             />
           </>
         );
