@@ -13,7 +13,7 @@ const initialState = {
 export const authContext = createContext(initialState);
 
 export const AuthContextProvider = ({ children }) => {
-  // define the state and its reducer to update that
+  // define reducer to update the state
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   // for storing user credential's or this contexts user state in local storage so that it doesn't gets cleared on refresh

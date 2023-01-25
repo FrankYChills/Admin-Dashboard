@@ -1,32 +1,26 @@
 // reducers takes data in from action and update the state
-const authReducer = (state, action) => {
+const movieReducer = (state, action) => {
   switch (action.type) {
-    case "LOGIN_START":
+    case "GET_MOVIES_START":
       // return new state
       return {
-        user: null,
+        movies: null,
         isFetching: true,
         error: false,
       };
 
-    case "LOGIN_SUCCESS":
+    case "GET_MOVIES_SUCCESS":
       return {
-        // action.payload will be user here
-        user: action.payload,
+        // action.payload will be movies here
+        movies: action.payload,
         isFetching: false,
         error: false,
       };
-    case "LOGIN_FAILURE":
+    case "GET_MOVIES_FAILURE":
       return {
-        user: null,
+        movies: null,
         isFetching: false,
         error: true,
-      };
-    case "LOGOUT":
-      return {
-        user: null,
-        isFetching: false,
-        error: false,
       };
 
     default:
@@ -34,4 +28,4 @@ const authReducer = (state, action) => {
   }
 };
 
-export default authReducer;
+export default movieReducer;
