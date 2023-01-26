@@ -12,22 +12,35 @@ const NewProduct = () => {
     const value = e.target.value;
     setMovie({ ...movie, [e.target.name]: value });
   };
-  console.log(movie);
+  console.log(mainImg);
+
   return (
     <div className="newProduct">
       <h1 className="newProductTitle">Add a New Movie/Series</h1>
       <form className="newProductForm">
         <div className="newProductItem">
           <label>Main Image</label>
-          <input type="file" id="mainImg" />
+          <input
+            type="file"
+            name="mainImg"
+            onChange={(e) => setMainImg(e.target.files[0])}
+          />
         </div>
         <div className="newProductItem">
           <label>Title Image</label>
-          <input type="file" id="titleImg" />
+          <input
+            type="file"
+            name="titleImg"
+            onChange={(e) => setTitleImg(e.target.files[0])}
+          />
         </div>
         <div className="newProductItem">
           <label>Thumbnail Image</label>
-          <input type="file" id="thumbnailImg" />
+          <input
+            type="file"
+            name="thumbnailImg"
+            onChange={(e) => setThumbnailImg(e.target.files[0])}
+          />
         </div>
         <div className="newProductItem">
           <label>Name</label>
@@ -107,11 +120,19 @@ const NewProduct = () => {
 
         <div className="newProductItem">
           <label>Trailer</label>
-          <input type="file" name="trailer" />
+          <input
+            type="file"
+            name="trailer"
+            onChange={(e) => setTrailer(e.target.files[0])}
+          />
         </div>
         <div className="newProductItem">
           <label>Full Video</label>
-          <input type="file" name="video" />
+          <input
+            type="file"
+            name="video"
+            onChange={(e) => setVideo(e.target.files[0])}
+          />
         </div>
       </form>
       <button className="newProductButton">Add</button>
