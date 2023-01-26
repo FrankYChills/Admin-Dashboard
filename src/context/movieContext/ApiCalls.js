@@ -1,5 +1,8 @@
 import axios from "axios";
 import {
+  addMovieFailure,
+  addMovieStart,
+  addMovieSuccess,
   deleteMovieFailure,
   deleteMovieStart,
   deleteMovieSuccess,
@@ -10,6 +13,7 @@ import {
 
 export const getMovies = async (dispatch) => {
   dispatch(getMoviesStart());
+  // req to api
   try {
     const res = await axios.get("http://localhost:3500" + "/api/movies", {
       headers: {
@@ -18,6 +22,7 @@ export const getMovies = async (dispatch) => {
         }`,
       },
     });
+    //  on success update the state
     dispatch(getMoviesSuccess(res.data.data));
   } catch (err) {
     dispatch(getMoviesFailure());
@@ -42,6 +47,28 @@ export const deleteMovie = async (id, dispatch) => {
     dispatch(deleteMovieSuccess(id));
   } catch (err) {
     dispatch(deleteMovieFailure());
+    console.log(err);
+  }
+};
+
+export const addMovie = async (movie, dispatch) => {
+  dispatch(addMovieStart());
+  try {
+    const res = await axios.post(
+      "http://localhost:3500" + "/api/movies",
+      movie,
+      {
+        headers: {
+          authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("user")).accessToken
+          }`,
+        },
+      }
+    );
+    console.log(res.data);
+    dispatch(addMovieSuccess(res.data.data));
+  } catch (err) {
+    dispatch(addMovieFailure());
     console.log(err);
   }
 };

@@ -1,4 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+// import app so that our this file knows firebase has been init
+import { app } from "../../firebase";
+
+import {
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable,
+} from "firebase/storage";
+
+import { movieContext } from "../../context/movieContext/MovieContext";
+import { addMovie } from "../../context/movieContext/ApiCalls";
 
 const NewProduct = () => {
   const [movie, setMovie] = useState({});
@@ -7,12 +19,79 @@ const NewProduct = () => {
   const [thumbnailImg, setThumbnailImg] = useState(null);
   const [trailer, setTrailer] = useState(null);
   const [video, setVideo] = useState(null);
+  const [uploaded, setUploaded] = useState(0);
+
+  const { dispatch } = useContext(movieContext);
 
   const handleChange = (e) => {
     const value = e.target.value;
     setMovie({ ...movie, [e.target.name]: value });
   };
-  console.log(mainImg);
+
+  const storage = getStorage();
+
+  const upload = (items) => {
+    items.forEach((item) => {
+      var fileRef = ref(storage, `items/${item.file.name}`);
+      var uploadTask = uploadBytesResumable(fileRef, item.file);
+      // track uplaod
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log(`[${item.file.name}] Upload is ${progress} % done`);
+        },
+        (error) => {
+          switch (error.code) {
+            case "storage/unauthorized":
+              // User doesn't have permission to access the object
+              console.log("Error : unauthorized", error);
+
+              break;
+            case "storage/canceled":
+              // User canceled the upload
+              console.log("Error : cancelled", error);
+              break;
+          }
+        },
+        () => {
+          // on successful upload get the url to store that in DB
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl) => {
+            console.log(downloadUrl);
+            // update the state
+            setMovie((prev) => {
+              return { ...prev, [item.label]: downloadUrl };
+            });
+            // update the uploadCounter
+            setUploaded((prev) => prev + 1);
+          });
+        }
+      );
+    });
+  };
+
+  const handleUpload = () => {
+    console.log("clicked");
+    upload([
+      { file: mainImg, label: "mainImg" },
+      { file: titleImg, label: "titleImg" },
+      { file: thumbnailImg, label: "thumbnailImg" },
+      { file: trailer, label: "trailer" },
+      { file: video, label: "video" },
+    ]);
+  };
+
+  const handleSubmit = () => {
+    addMovie(movie, dispatch);
+    setMovie({});
+    setMainImg(null);
+    setTitleImg(null);
+    setThumbnailImg(null);
+    setTrailer(null);
+    setVideo(null);
+    setUploaded(0);
+  };
 
   return (
     <div className="newProduct">
@@ -135,7 +214,23 @@ const NewProduct = () => {
           />
         </div>
       </form>
-      <button className="newProductButton">Add</button>
+      {uploaded == 5 ? (
+        <button className="newProductButton" onClick={handleSubmit}>
+          Add to DB
+        </button>
+      ) : (
+        <button
+          className="newProductButton"
+          onClick={handleUpload}
+          disabled={
+            mainImg && titleImg && thumbnailImg && video && trailer
+              ? false
+              : true
+          }
+        >
+          Upload To Firebase
+        </button>
+      )}
     </div>
   );
 };

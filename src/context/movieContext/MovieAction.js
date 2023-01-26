@@ -26,3 +26,15 @@ export const deleteMovieSuccess = (movieId) => ({
 export const deleteMovieFailure = () => ({
   type: "DELETE_MOVIE_FAILURE",
 });
+
+// CREATE A MOVIE
+export const addMovieStart = () => ({
+  type: "ADD_MOVIE_START",
+});
+export const addMovieSuccess = (movie) => ({
+  type: "ADD_MOVIE_SUCCESS",
+  payload: movie,
+});
+export const addMovieFailure = () => ({
+  type: "ADD_MOVIE_FAILURE",
+});

@@ -881,15 +881,18 @@ body {
 
 .newProductButton {
   background-color: darkblue;
-  padding: 10px;
-  width: 200px;
+  padding: 15px;
+  min-width: 200px;
   color: white;
   border: none;
   border-radius: 20px;
   margin-top: 20px;
   font-size: 20px;
   cursor: pointer;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+}
+.newProductButton[disabled] {
+  background-color: grey;
 }
 
 /* Login Page ------------------------ */
