@@ -78,6 +78,7 @@ export const addMovie = async (movie, dispatch) => {
 
 export const updateMovie = async (id, movie, dispatch) => {
   dispatch(updateMovieStart());
+
   try {
     const res = await axios.put(
       `http://localhost:3500` + `/api/movies/${id}`,

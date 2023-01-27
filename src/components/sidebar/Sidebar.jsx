@@ -8,6 +8,7 @@ import MessageIcon from "@mui/icons-material/Message";
 import EmailIcon from "@mui/icons-material/Email";
 import FeedbackIcon from "@mui/icons-material/Feedback";
 import MovieIcon from "@mui/icons-material/Movie";
+import ListAltIcon from "@mui/icons-material/ListAlt";
 import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
@@ -68,10 +69,12 @@ const Sidebar = () => {
                 <b>Movies</b>
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <PaidIcon fontSize="large" className="sbicon" />
-              <b>Transcations</b>
-            </li>
+            <Link to="/lists" className="link">
+              <li className="sidebarListItem">
+                <ListAltIcon fontSize="large" className="sbicon" />
+                <b>Movie Lists</b>
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="sidebarMenu">

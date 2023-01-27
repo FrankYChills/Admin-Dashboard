@@ -932,3 +932,9 @@ body {
   color: white;
   cursor: pointer;
 }
+
+/* MovieLists page */
+.movieLists {
+  flex: 4;
+  background-color: red;
+}

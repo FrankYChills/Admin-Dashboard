@@ -28,12 +28,19 @@ const Product = () => {
     setNewAgeLimit(foundMovie[0].ageLimit);
     setNewTrailerLink(foundMovie[0].trailer);
     setNewVideoLink(foundMovie[0].video);
-  }, []);
+  }, [movies]);
 
-  const handleUpdate = () => {
+  const handleUpdate = (e) => {
+    e.preventDefault();
     updateMovie(
       id,
-      { newYear, newAgeLimit, newGenre, newTrailerLink, newVideoLink },
+      {
+        year: newYear,
+        ageLimit: newAgeLimit,
+        genre: newGenre,
+        trailer: newTrailerLink,
+        video: newVideoLink,
+      },
       dispatch
     );
   };
