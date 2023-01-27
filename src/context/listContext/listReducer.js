@@ -59,6 +59,24 @@ const listReducer = (state, action) => {
         isfetching: false,
         error: true,
       };
+    case "CREATE_LIST_START":
+      return {
+        ...state,
+        isfetching: true,
+        error: false,
+      };
+    case "CREATE_LIST_SUCCESS":
+      return {
+        lists: [...state.lists, action.payload],
+        isfetching: false,
+        error: false,
+      };
+    case "CREATE_LIST_FAILURE":
+      return {
+        ...state,
+        isfetching: false,
+        error: true,
+      };
   }
 };
 

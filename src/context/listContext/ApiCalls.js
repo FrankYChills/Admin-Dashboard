@@ -9,6 +9,9 @@ import {
   updateListStart,
   updateListFailure,
   updateListSuccess,
+  createListStart,
+  createListFailure,
+  createListSuccess,
 } from "./listAction";
 
 export const getLists = async (dispatch) => {
@@ -68,6 +71,24 @@ export const updateList = async (id, list, dispatch) => {
     dispatch(updateListSuccess(res.data.data));
   } catch (err) {
     dispatch(updateListFailure());
+    console.log(err);
+  }
+};
+
+export const createList = async (list, dispatch) => {
+  dispatch(createListStart());
+  try {
+    const res = await axios.post(`http://localhost:3500` + `/api/lists`, list, {
+      headers: {
+        authorization: `Bearer ${
+          JSON.parse(localStorage.getItem("user")).accessToken
+        }`,
+      },
+    });
+    console.log(res.data);
+    dispatch(createListSuccess(res.data.data));
+  } catch (err) {
+    dispatch(createListFailure());
     console.log(err);
   }
 };
