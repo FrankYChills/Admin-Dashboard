@@ -6,6 +6,9 @@ import {
   getListsFailure,
   getListsStart,
   getListsSuccess,
+  updateListStart,
+  updateListFailure,
+  updateListSuccess,
 } from "./listAction";
 
 export const getLists = async (dispatch) => {
@@ -43,6 +46,28 @@ export const deleteList = async (id, dispatch) => {
     dispatch(deleteListSuccess(id));
   } catch (err) {
     dispatch(deleteListFailure());
+    console.log(err);
+  }
+};
+
+export const updateList = async (id, list, dispatch) => {
+  dispatch(updateListStart());
+  try {
+    const res = await axios.put(
+      `http://localhost:3500` + `/api/lists/${id}`,
+      list,
+      {
+        headers: {
+          authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("user")).accessToken
+          }`,
+        },
+      }
+    );
+    console.log(res.data);
+    dispatch(updateListSuccess(res.data.data));
+  } catch (err) {
+    dispatch(updateListFailure());
     console.log(err);
   }
 };

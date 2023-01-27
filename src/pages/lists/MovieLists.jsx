@@ -28,7 +28,7 @@ const MovieLists = () => {
       renderCell: (params) => {
         return (
           <>
-            <Link to={`/product/${params.row._id}`}>
+            <Link to={`/lists/${params.row._id}`}>
               <button className="productListEdit">Edit</button>
             </Link>
             <DeleteIcon

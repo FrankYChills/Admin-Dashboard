@@ -25,3 +25,17 @@ export const deleteListSuccess = (listId) => ({
 export const deleteListFailure = () => ({
   type: "DELETE_LIST_FAILURE",
 });
+
+// Update List
+export const updateListStart = () => ({
+  type: "UPDATE_LIST_START",
+});
+
+export const updateListSuccess = (list) => ({
+  type: "UPDATE_LIST_SUCCESS",
+  payload: list,
+});
+
+export const updateListFailure = () => ({
+  type: "DELETE_LIST_FAILURE",
+});

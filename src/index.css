@@ -938,3 +938,13 @@ body {
   flex: 4;
   /* background-color: red; */
 }
+
+/* Movie Page */
+.movie {
+  flex: 4;
+}
+
+/* newList Page */
+.newList {
+  flex: 4;
+}

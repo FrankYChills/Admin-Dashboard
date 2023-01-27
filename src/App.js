@@ -13,6 +13,9 @@ import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/login/Login";
 import MovieLists from "./pages/lists/MovieLists";
+import List from "./pages/lists/List";
+import LayoutMovie from "./components/parentComp/LayoutMovie";
+import NewList from "./pages/lists/NewList";
 
 function App() {
   const { user } = useContext(authContext);
@@ -38,7 +41,11 @@ function App() {
           {/* /newProduct */}
           <Route path="newProduct" element={<NewProduct />} />
           {/* /lists */}
-          <Route path="lists" element={<MovieLists />} />
+          <Route path="lists" element={<LayoutMovie />}>
+            <Route index element={<MovieLists />} />
+            <Route path=":id" element={<List />} />
+            <Route path="newList" element={<NewList />} />
+          </Route>
         </Route>
       </Routes>
     </>
