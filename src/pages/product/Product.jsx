@@ -5,19 +5,38 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import Chart from "../../components/chart/Chart";
+import { updateMovie } from "../../context/movieContext/ApiCalls";
 import { movieContext } from "../../context/movieContext/MovieContext";
 import { productData } from "../../dummyData";
 
 const Product = () => {
   const { id } = useParams();
-  const { movies } = useContext(movieContext);
+  const { movies, dispatch } = useContext(movieContext);
   const [movie, setMovie] = useState({});
+  const [newYear, setNewYear] = useState("");
+  const [newGenre, setNewGenre] = useState("");
+  const [newAgeLimit, setNewAgeLimit] = useState("");
+  const [newTrailerLink, setNewTrailerLink] = useState("");
+  const [newVideoLink, setNewVideoLink] = useState("");
 
   useEffect(() => {
     const foundMovie = movies.filter((movie) => movie._id == id);
 
     setMovie(foundMovie[0]);
+    setNewYear(foundMovie[0].year);
+    setNewGenre(foundMovie[0].genre);
+    setNewAgeLimit(foundMovie[0].ageLimit);
+    setNewTrailerLink(foundMovie[0].trailer);
+    setNewVideoLink(foundMovie[0].video);
   }, []);
+
+  const handleUpdate = () => {
+    updateMovie(
+      id,
+      { newYear, newAgeLimit, newGenre, newTrailerLink, newVideoLink },
+      dispatch
+    );
+  };
   return (
     <div className="product">
       <div className="productTitleContainer">
@@ -62,16 +81,36 @@ const Product = () => {
       <div className="productBottom">
         <form className="productForm">
           <div className="productFormLeft">
-            <label>Movie Name</label>
-            <input type="text" placeholder={movie.title} />
+            <label>Year</label>
+            <input
+              type="text"
+              value={newYear}
+              onChange={(e) => setNewYear(e.target.value)}
+            />
             <label>Movie Genre</label>
-            <input type="text" placeholder={movie.genre} />
+            <input
+              type="text"
+              value={newGenre}
+              onChange={(e) => setNewGenre(e.target.value)}
+            />
             <label>Age Limit</label>
-            <input type="text" placeholder={movie.ageLimit} />
-            <label>Trailer</label>
-            <input type="file" placeholder={movie.trailer} />
-            <label>Full Video</label>
-            <input type="file" placeholder={movie.video} />
+            <input
+              type="text"
+              value={newAgeLimit}
+              onChange={(e) => setNewAgeLimit(e.target.value)}
+            />
+            <label>Trailer Link</label>
+            <input
+              type="text"
+              value={newTrailerLink}
+              onChange={(e) => setNewTrailerLink(e.target.value)}
+            />
+            <label>Full Video Link</label>
+            <input
+              type="text"
+              value={newVideoLink}
+              onChange={(e) => setNewVideoLink(e.target.value)}
+            />
           </div>
           <div className="productFormRight">
             <div className="productUpload">
@@ -80,12 +119,14 @@ const Product = () => {
                 alt="productImage"
                 className="productInfoImage"
               />
-              <label htmlFor="file">
+              {/* <label htmlFor="file">
                 <Publish />
-              </label>
+              </label> */}
               <input type="file" id="file" style={{ display: "none" }} />
             </div>
-            <button className="productButton">Update</button>
+            <button className="productButton" onClick={handleUpdate}>
+              Update
+            </button>
           </div>
         </form>
       </div>
