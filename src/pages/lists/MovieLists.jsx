@@ -1,11 +1,18 @@
 import { Link } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { DataGrid } from "@mui/x-data-grid";
+import { useContext, useEffect } from "react";
+import { listContext } from "../../context/listContext/listContext";
+import { deleteList, getLists } from "../../context/listContext/ApiCalls";
 
 const MovieLists = () => {
-  const lists = [];
+  const { lists, dispatch } = useContext(listContext);
+
+  useEffect(() => {
+    getLists(dispatch);
+  }, []);
   const columns = [
-    { field: "_id", headerName: "ID", width: 70 },
+    { field: "_id", headerName: "ID", width: 220 },
     {
       field: "title",
       headerName: "List",
@@ -26,7 +33,7 @@ const MovieLists = () => {
             </Link>
             <DeleteIcon
               className="productListDelete"
-              //   onClick={() => deleteMovie(params.row._id, dispatch)}
+              onClick={() => deleteList(params.row._id, dispatch)}
             />
           </>
         );
@@ -35,6 +42,7 @@ const MovieLists = () => {
   ];
   return (
     <div className="movieLists">
+      <h1>Movie Lists</h1>
       {lists && (
         <DataGrid
           rows={lists}
