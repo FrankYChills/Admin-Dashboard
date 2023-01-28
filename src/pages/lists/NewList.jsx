@@ -106,9 +106,7 @@ const NewList = () => {
         className="newProductButton"
         onClick={handleSubmit}
         disabled={
-          list.genre && list.content[0] && list.title && list.type
-            ? false
-            : true
+          list.genre && list.content && list.title && list.type ? false : true
         }
       >
         Add list
