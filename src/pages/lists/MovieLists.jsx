@@ -43,6 +43,9 @@ const MovieLists = () => {
   return (
     <div className="movieLists">
       <h1>Movie Lists</h1>
+      <Link to="/lists/newList">
+        <button className="productAddButton createNewL">Create</button>
+      </Link>
       {lists && (
         <DataGrid
           rows={lists}

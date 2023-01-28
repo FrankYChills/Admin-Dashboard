@@ -10,35 +10,32 @@ const Movie = () => {
   const { lists, dispatch } = useContext(listContext);
   const [list, setList] = useState({});
 
-  const [newTitle, setNewTitle] = useState("");
-  const [newType, setNewType] = useState("");
-  const [newGenre, setNewGenre] = useState("");
+  const [newId, setNewId] = useState("");
 
   useEffect(() => {
     const foundList = lists.filter((list) => list._id == id);
 
     setList(foundList[0]);
-    setNewTitle(foundList[0].title);
-    setNewGenre(foundList[0].genre);
-    setNewType(foundList[0].type);
   }, [lists, dispatch]);
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    updateList(
-      id,
-      { title: newTitle, type: newType, genre: newGenre },
-      dispatch
-    );
+    // normal update
+    // updateList(
+    //   id,
+    //   { title: newTitle, type: newType, genre: newGenre },
+    //   dispatch
+    // );
+  };
+
+  const handleRemove = (e) => {
+    e.preventDefault();
   };
 
   return (
     <div className="movie">
       <div className="productTitleContainer">
-        <h1 className="productTitle">List title</h1>
-        <Link to="/lists/newList">
-          <button className="productAddButton">Create</button>
-        </Link>
+        <h1 className="productTitle">Update a List</h1>
       </div>
       <div className="productTop">
         {/* <div className="productTopLeft">
@@ -67,28 +64,17 @@ const Movie = () => {
       <div className="productBottom">
         <form className="productForm">
           <div className="productFormLeft">
-            <label>Title</label>
+            <label>Enter Movie Id To Add/Remove to/from the list</label>
             <input
               type="text"
-              value={newTitle}
-              onChange={(e) => setNewTitle(e.target.value)}
+              value={newId}
+              onChange={(e) => setNewId(e.target.value)}
             />
-            <label>Type</label>
-            <input
-              type="text"
-              value={newType}
-              onChange={(e) => setNewType(e.target.value)}
-            />
-            <label>Genre</label>
-            <input
-              type="text"
-              value={newGenre}
-              onChange={(e) => setNewGenre(e.target.value)}
-            />
-          </div>
-          <div className="productFormRight">
-            <button className="productButton" onClick={handleUpdate}>
-              Update
+            <button className="productButton a" onClick={handleUpdate}>
+              Add
+            </button>
+            <button className="productButton r" onClick={handleRemove}>
+              Remove
             </button>
           </div>
         </form>

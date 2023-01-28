@@ -823,6 +823,14 @@ body {
   letter-spacing: 1px;
 }
 
+.a {
+  background-color: green;
+}
+
+.r {
+  background-color: red;
+}
+
 /* New Product Page ----------------------------- */
 .newProduct {
   flex: 4;
@@ -947,4 +955,9 @@ body {
 /* newList Page */
 .newList {
   flex: 4;
+}
+
+/* others */
+.createNewL {
+  margin: 12px;
 }
