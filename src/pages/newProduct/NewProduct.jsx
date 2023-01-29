@@ -76,9 +76,9 @@ const NewProduct = () => {
     upload([
       { file: mainImg, label: "mainImg" },
       { file: titleImg, label: "titleImg" },
-      { file: thumbnailImg, label: "thumbnailImg" },
-      { file: trailer, label: "trailer" },
-      { file: video, label: "video" },
+      // { file: thumbnailImg, label: "thumbnailImg" },
+      // { file: trailer, label: "trailer" },
+      // { file: video, label: "video" },
     ]);
   };
 
@@ -214,7 +214,7 @@ const NewProduct = () => {
           />
         </div>
       </form>
-      {uploaded == 5 ? (
+      {uploaded == 2 ? (
         <button className="newProductButton" onClick={handleSubmit}>
           Add to DB
         </button>
@@ -222,11 +222,7 @@ const NewProduct = () => {
         <button
           className="newProductButton"
           onClick={handleUpload}
-          disabled={
-            mainImg && titleImg && thumbnailImg && video && trailer
-              ? false
-              : true
-          }
+          disabled={mainImg && titleImg ? false : true}
         >
           Upload To Firebase
         </button>

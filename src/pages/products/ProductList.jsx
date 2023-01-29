@@ -80,6 +80,9 @@ const ProductList = () => {
 
   return (
     <div className="productList">
+      <Link to="/newProduct">
+        <button className="productAddButton createNewL">Create</button>
+      </Link>
       {movies && (
         <DataGrid
           rows={movies}

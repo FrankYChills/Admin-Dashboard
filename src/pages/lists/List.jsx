@@ -26,10 +26,15 @@ const Movie = () => {
     //   { title: newTitle, type: newType, genre: newGenre },
     //   dispatch
     // );
+    // push update
+    updateList(id, { movieId: newId, type: "push" }, dispatch);
+    setNewId("");
   };
 
   const handleRemove = (e) => {
     e.preventDefault();
+    updateList(id, { movieId: newId, type: "pull" }, dispatch);
+    setNewId("");
   };
 
   return (
