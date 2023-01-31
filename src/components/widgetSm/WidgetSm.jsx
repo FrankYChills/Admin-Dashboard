@@ -12,8 +12,9 @@ const WidgetSm = () => {
           "http://localhost:3500" + "/api/users?new=true",
           {
             headers: {
-              authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzY2E0MTBlYTViYjBlMTY2MjY3NTZjNCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3NDM2NTkzNCwiZXhwIjoxNjc0OTcwNzM0fQ.IP28VZxkIjXAszWGtBBXRhDXAI5lKz274vqvqIeE328",
+              authorization: `Bearer ${
+                JSON.parse(localStorage.getItem("user")).accessToken
+              }`,
             },
           }
         );
