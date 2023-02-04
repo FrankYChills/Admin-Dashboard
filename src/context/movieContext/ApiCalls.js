@@ -18,7 +18,7 @@ export const getMovies = async (dispatch) => {
   dispatch(getMoviesStart());
   // req to api
   try {
-    const res = await axios.get("http://localhost:3500" + "/api/movies", {
+    const res = await axios.get(process.env.REACT_APP_API_URL + "/api/movies", {
       headers: {
         authorization: `Bearer ${
           JSON.parse(localStorage.getItem("user")).accessToken
@@ -37,7 +37,7 @@ export const deleteMovie = async (id, dispatch) => {
   dispatch(deleteMovieStart());
   try {
     const res = await axios.delete(
-      `http://localhost:3500` + `/api/movies/${id}`,
+      process.env.REACT_APP_API_URL + `/api/movies/${id}`,
       {
         headers: {
           authorization: `Bearer ${
@@ -58,7 +58,7 @@ export const addMovie = async (movie, dispatch) => {
   dispatch(addMovieStart());
   try {
     const res = await axios.post(
-      "http://localhost:3500" + "/api/movies",
+      process.env.REACT_APP_API_URL + "/api/movies",
       movie,
       {
         headers: {
@@ -81,7 +81,7 @@ export const updateMovie = async (id, movie, dispatch) => {
 
   try {
     const res = await axios.put(
-      `http://localhost:3500` + `/api/movies/${id}`,
+      process.env.REACT_APP_API_URL + `/api/movies/${id}`,
       movie,
       {
         headers: {

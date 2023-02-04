@@ -30,7 +30,7 @@ const Home = () => {
     const getStats = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3500" + "/api/users/stats"
+          process.env.REACT_APP_API_URL + "/api/users/stats"
         );
         var sortedMonths = res.data.data.sort((a, b) => b._id - a._id);
         sortedMonths.map((item) =>

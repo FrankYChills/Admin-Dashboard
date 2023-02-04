@@ -9,7 +9,7 @@ const WidgetSm = () => {
     const fetchNewUsers = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3500" + "/api/users?new=true",
+          process.env.REACT_APP_API_URL + "/api/users?new=true",
           {
             headers: {
               authorization: `Bearer ${

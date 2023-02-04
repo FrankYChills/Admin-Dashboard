@@ -13,7 +13,7 @@ export const login = async (user, dispatch) => {
   // start authentication process
   try {
     const res = await axios.post(
-      "http://localhost:3500" + "/api/auth/login",
+      process.env.REACT_APP_API_URL + "/api/auth/login",
       user
     );
 

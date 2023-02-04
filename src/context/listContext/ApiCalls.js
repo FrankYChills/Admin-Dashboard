@@ -17,7 +17,7 @@ import {
 export const getLists = async (dispatch) => {
   dispatch(getListsStart());
   try {
-    const res = await axios.get("http://localhost:3500" + "/api/lists", {
+    const res = await axios.get(process.env.REACT_APP_API_URL + "/api/lists", {
       headers: {
         authorization: `Bearer ${
           JSON.parse(localStorage.getItem("user")).accessToken
@@ -36,7 +36,7 @@ export const deleteList = async (id, dispatch) => {
   dispatch(deleteListStart());
   try {
     const res = await axios.delete(
-      `http://localhost:3500` + `/api/lists/${id}`,
+      process.env.REACT_APP_API_URL + `/api/lists/${id}`,
       {
         headers: {
           authorization: `Bearer ${
@@ -57,7 +57,7 @@ export const updateList = async (id, list, dispatch) => {
   dispatch(updateListStart());
   try {
     const res = await axios.put(
-      `http://localhost:3500` + `/api/lists/${id}`,
+      process.env.REACT_APP_API_URL + `/api/lists/${id}`,
       list,
       {
         headers: {
@@ -78,13 +78,17 @@ export const updateList = async (id, list, dispatch) => {
 export const createList = async (list, dispatch) => {
   dispatch(createListStart());
   try {
-    const res = await axios.post(`http://localhost:3500` + `/api/lists`, list, {
-      headers: {
-        authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("user")).accessToken
-        }`,
-      },
-    });
+    const res = await axios.post(
+      process.env.REACT_APP_API_URL + `/api/lists`,
+      list,
+      {
+        headers: {
+          authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("user")).accessToken
+          }`,
+        },
+      }
+    );
     console.log(res.data);
     dispatch(createListSuccess(res.data.data));
   } catch (err) {
